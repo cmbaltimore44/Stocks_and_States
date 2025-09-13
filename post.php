@@ -89,15 +89,18 @@
                 <div class="post-meta">
                     Published on <?= date('F j, Y', strtotime($post['created_at'])) ?>
                 </div>
-                <div class="post-content"><?= $latest_post['content'] ?></div>
-            </div>
-        <?php else: ?>
-            <div class="newsletter-post">
-                <h1>Post Not Found</h1>
-                <p>The requested post could not be found.</p>
-            </div>
-        <?php endif; ?>
-    </div>
+                <?php
+                $allowed_tags = '<p><br><b><i><strong><em><u><ul><ol><li><h1><h2><h3><h4><h5><h6><a>';
+                $safe_content = strip_tags($post['content'], $allowed_tags);
+                ?>
+                <div class="post-content"><?= $safe_content ?></div>
+            <?php else: ?>
+                <div class="newsletter-post">
+                    <h1>Post Not Found</h1>
+                    <p>The requested post could not be found.</p>
+                </div>
+            <?php endif; ?>
+        </div>
 </body>
 
 </html>
