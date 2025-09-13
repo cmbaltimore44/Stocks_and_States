@@ -10,6 +10,17 @@
 *.userosscache
 *.sln.docstates
 *.env
+config.php
+*.sql
+*.log
+.env
+.env.local
+.env.production
+backup_*.sql
+/logs/
+/tmp/
+.DS_Store
+Thumbs.db
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
